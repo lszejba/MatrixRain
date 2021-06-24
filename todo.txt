@@ -1,0 +1,15 @@
+1. Overhaul
+1.1. Make every symbol separate object containing letter, color (green/white/black and in-betweens) and current position
+1.2. Make every column have different speed (should it be reset after showing text?)
+1.3. Make neighbour columns start generating symbols with delays to each other
+2. Showing text
+2.1. Stop generation of text in columns which won't show text earlier
+2.2. Stop generation of text in columns which will show text later
+2.3. Add symbols which should be shown added to proper column
+2.4. Add more symbols after it (these symbols with disapper when reaching shown text instead of bottom of screen)
+2.5. Restart symbol generation after given text
+2.6. TBD: What to do with shown text
+3. Showing pictures
+3.1. TBD
+4. Configuration/Custom texts parsing
+4.1. TBD
