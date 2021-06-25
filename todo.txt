@@ -9,7 +9,7 @@
 2.4. Add more symbols after it (these symbols with disapper when reaching shown text instead of bottom of screen)
 2.5. Restart symbol generation after given text
 2.6. TBD: What to do with shown text
-3. Showing pictures
+3. Configuration/Custom texts parsing
 3.1. TBD
-4. Configuration/Custom texts parsing
+4. Showing pictures
 4.1. TBD
