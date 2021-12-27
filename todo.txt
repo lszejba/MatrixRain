@@ -1,7 +1,9 @@
 1. Overhaul
 1.1. Make every symbol separate object containing letter, color (green/white/black and in-betweens) and current position
+1.1.1 Every symbol starts with black/black fg/bg colors (so it's invisible). For every showing cycle we re-use the same set of symbols, we just change their colors/opacity/etc
 1.2. Make every column have different speed (should it be reset after showing text?)
 1.3. Make neighbour columns start generating symbols with delays to each other
+1.3.1 Every column has random speed (range 1-30 for now), but real speed will be: MIN_SPEED + COLUMN_SPEED*multiplier (so we don't have columns with wildly different speed, like 30x faster)
 2. Showing text
 2.1. Stop generation of text in columns which won't show text earlier
 2.2. Stop generation of text in columns which will show text later
