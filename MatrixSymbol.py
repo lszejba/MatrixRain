@@ -1,4 +1,5 @@
 import curses
+import logging
 import MatrixUtils
 
 DEFAULT_COLOR = curses.COLOR_BLACK
@@ -44,8 +45,31 @@ class MatrixSymbol:
         if bg_color:
             self._bg_color = bg_color
 
-    def __init__(self, symbol=None):
+    def __init__(self, symbol_number, symbol=None):
+        self._number = symbol_number
         self._symbol = symbols[0]
+        self._ticks_left = 0
+        # Color is both curses.color_pair() and additional params (A_BOLD)
+        self._color = curses.color_pair(1)
         self._fg_color = DEFAULT_COLOR
         self._bg_color = DEFAULT_COLOR
         self.set_symbol(symbol)
+#        logging.debug('create for %s', str(self))
+
+    def __str__(self):
+        return "MatrixSymbol - number: {0}, symbol: {1}, ticks_left: {2}, color: {3}".format(self._number, str(self._symbol), self._ticks_left, self._color)
+
+    def set_ticks_left(self, ticks_left):
+        logging.debug('...setting ticks_left to %d', ticks_left)
+        self._ticks_left = ticks_left
+
+    def _cycle_colors(self):
+        if self._ticks_left > 0:
+            self._color = curses.color_pair(2)
+        else:
+            self._color = curses.color_pair(1)
+
+    def tick(self):
+        logging.debug('  tick() for %s', str(self))
+        self._ticks_left = self._ticks_left - 1
+        self._cycle_colors()
